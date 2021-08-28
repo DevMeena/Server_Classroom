@@ -1,10 +1,16 @@
 import mongoose from 'mongoose';
+import passportLocalMongoose from 'passport-local-mongoose'
 
-const postSchema = mongoose.Schema({
-    name: String,
-    pwd: String
+const userSchema = mongoose.Schema({
+    firstName: String,
+    lastName: String,
+    email: String,
+    password: String,
+    isTeacher: Boolean
 })
 
-var PostMessage = mongoose.model('PostMessage', postSchema);
+userSchema.plugin(passportLocalMongoose, { usernameField : 'email' } )
 
-export default PostMessage;
+const User = mongoose.model('User', userSchema);
+
+export default User;
