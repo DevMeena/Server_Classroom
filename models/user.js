@@ -6,7 +6,8 @@ const userSchema = mongoose.Schema({
     lastName: String,
     email: String,
     password: String,
-    isTeacher: Boolean
+    isTeacher: Boolean,
+    authenticated : {type : Boolean, default : false}
 })
 
 userSchema.plugin(passportLocalMongoose, { usernameField : 'email' } )

@@ -55,7 +55,7 @@ export const signUp = async (req, res) => {
         // const user = await User.find();
         User.register({ fistName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, isTeacher: req.body.isTeacher }, req.body.password, (e,user) => {
             if(e) {
-                res.json({ success: false, message: e.message })
+                res.json({ Authenticated: false, success: false, message: e.message })
                 console.log("ERROR IN SAVING USER");
                 console.log(e);
             } else {
@@ -89,7 +89,7 @@ export const signUp = async (req, res) => {
     } catch (error) {
         console.log("this is the biggest error ");
         console.log(error);
-        res.status(404).json({ message: error.message });
+        res.status(404).json({message : error.message});
     }
 }
 
