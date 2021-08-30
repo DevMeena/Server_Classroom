@@ -46,12 +46,12 @@ export const signUp = async (req, res) => {
         password: req.body.password
     }
 
-    console.log(usr);
+    // console.log(usr);
 
     // const newPostMessage = new PostMessage({ title, message, selectedFile, creator, tags })
-    console.log(req.body);
+    // console.log(req.body);
     const newUser =  new User(usr);
-    try {
+    try {   
         // const user = await User.find();
         User.register({ fistName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, isTeacher: req.body.isTeacher }, req.body.password, (e,user) => {
             if(e) {
