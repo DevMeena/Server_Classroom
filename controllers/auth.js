@@ -170,6 +170,8 @@ export const signUp =  (req, res) => {
 
         User.findOne({ email: req.body.email }, (e, doc) => {
             if(e) {
+                res.json({ Authenticated: false, success: false, message: e.message })
+                console.log("ERROR IN SAVING USER");
                 console.log(e);
             } else {
                 console.log(doc);
@@ -211,7 +213,7 @@ export const signUp =  (req, res) => {
     } catch (error) {
         console.log(" ERROR IN SIGN UP ");
         console.log(error);
-        res.status(404).json({ message: error.message });
+        res.status(404).json({message : error.message});
     }
 }
 

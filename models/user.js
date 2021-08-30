@@ -9,8 +9,9 @@ const userSchema = mongoose.Schema({
     password: String,
     isTeacher: Boolean,
     googleId: String,
-    // secret: String
-})
+    authenticated : {type : Boolean, default : false},
+    classes : {type : Array}
+});
 
 userSchema.plugin(passportLocalMongoose)
 userSchema.plugin(findOrCreate);
